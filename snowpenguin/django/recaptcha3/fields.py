@@ -34,7 +34,7 @@ class ReCaptchaField(forms.CharField):
             except:
                 return {}
 
-        response_token = super(ReCaptchaField, self).clean(values)
+        response_token = super(ReCaptchaField, self).clean(values)[2:-2]
 
         try:
             r = requests.post(
